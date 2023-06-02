@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 # detaChain
+=======
+# DeltaChain
+>>>>>>> 6a6908e912236759714f234b5f1846556b894366
 
 Layer 2 blockchain based on Substrate
 
-### Website
 
+<<<<<<< HEAD
 https://detachain.org
 
 ### Testnet Explorer
@@ -29,3 +33,5 @@ http://scan.boka.network/#/Galois
 5、Now you can build the detaChain from source code:
 
 ``` cargo build --release ```
+=======
+>>>>>>> 6a6908e912236759714f234b5f1846556b894366
