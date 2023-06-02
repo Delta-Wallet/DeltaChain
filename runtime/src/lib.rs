@@ -116,8 +116,8 @@ pub mod opaque {
 }
 
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("mathchain-galois"),
-	impl_name: create_runtime_str!("mathchain-galois"),
+	spec_name: create_runtime_str!("detachain-galois"),
+	impl_name: create_runtime_str!("detachain-galois"),
 	authoring_version: 2,
 	spec_version: 1,
 	impl_version: 1,
@@ -264,10 +264,10 @@ impl pallet_grandpa::Config for Runtime {
 }
 
 parameter_types! {
-	pub const ConfigDepositBase: Balance = 5 * MATHS;
+	pub const ConfigDepositBase: Balance = 5 * detaS;
 	pub const FriendDepositFactor: Balance = 50 * DOLLARS;
 	pub const MaxFriends: u16 = 9;
-	pub const RecoveryDeposit: Balance = 5 * MATHS;
+	pub const RecoveryDeposit: Balance = 5 * detaS;
 }
 
 impl pallet_recovery::Config for Runtime {
@@ -295,9 +295,9 @@ impl pallet_timestamp::Config for Runtime {
 parameter_types! {
 	pub const ExistentialDeposit: u128 = 500;
 	pub const MaxLocks: u32 = 50;
-	pub const DailyLimit: u128 = 1_000 * MATHS;
-	pub const MonthlyLimit: u128 = 999_000_000_000 * MATHS;
-	pub const YearlyLimit: u128 = 999_000_000_000 * MATHS;
+	pub const DailyLimit: u128 = 1_000 * detaS;
+	pub const MonthlyLimit: u128 = 999_000_000_000 * detaS;
+	pub const YearlyLimit: u128 = 999_000_000_000 * detaS;
 }
 
 impl pallet_balances::Config for Runtime {

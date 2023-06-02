@@ -9,6 +9,6 @@ members = [
     'consensus/primitives',
     'runtime',
     'runtime/galois',
-    'runtime/mathchain',
+    'runtime/detachain',
 ]
 exclude = ["vendor"]

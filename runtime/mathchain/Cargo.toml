@@ -1,9 +1,9 @@
 [package]
-authors = ['Mathwallet DevHub <https://github.com/mathwallet>']
-description = 'MathChain is the Polkadot Smart Wallet Parachain based on Substrate'
+authors = ['detawallet DevHub <https://github.com/detawallet>']
+description = 'detaChain is the Polkadot Smart Wallet Parachain based on Substrate'
 edition = '2018'
-homepage = 'https://mathwallet.net/mathchain'
+homepage = 'https://detawallet.net/detachain'
 license = 'Unlicense'
-name = 'mathchain-runtime-mathchain'
-repository = 'https://github.com/mathwallet/MathChain/'
+name = 'detachain-runtime-detachain'
+repository = 'https://github.com/detawallet/detaChain/'
 version = '0.1.0'

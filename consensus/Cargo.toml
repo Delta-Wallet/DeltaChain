@@ -1,11 +1,11 @@
 [package]
-name = "mathchain-consensus"
+name = "detachain-consensus"
 version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 description = "Frontier consensus for substrate"
 edition = "2018"
 license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
-repository = "https://github.com/mathwallet/MathChain"
+repository = "https://github.com/detawallet/detaChain"
 
 [dependencies]
 codec = { package = "parity-scale-codec", version = "2.0.1", features = ["derive"] }
@@ -16,7 +16,7 @@ sp-api = {git = "https://github.com/paritytech/substrate.git", branch = "master"
 sc-client-api = {git = "https://github.com/paritytech/substrate.git", branch = "master" }
 sp-block-builder = {git = "https://github.com/paritytech/substrate.git", branch = "master" }
 sp-inherents = {git = "https://github.com/paritytech/substrate.git", branch = "master" }
-mathchain-consensus-primitives = { version = "0.1.0", path = "primitives" }
+detachain-consensus-primitives = { version = "0.1.0", path = "primitives" }
 sp-consensus = { git = "https://github.com/paritytech/substrate.git", branch = "master" }
 log = "0.4.8"
 futures = { version = "0.3.1", features = ["compat"] }

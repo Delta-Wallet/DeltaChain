@@ -19,17 +19,17 @@ use crate::{chain_spec, service};
 use crate::cli::{Cli, Subcommand};
 use sc_cli::{SubstrateCli, RuntimeVersion, Role, ChainSpec};
 use sc_service::PartialComponents;
-use mathchain_runtime::Block;
+use detachain_runtime::Block;
 use sp_core::crypto::Ss58AddressFormat;
 use service::IdentifyVariant;
 use crate::service::new_partial;
 
 use galois_runtime_config::CHAIN_ID as GaoloisChainId;
-use mathchain_runtime_config::CHAIN_ID as MathchainChainId;
+use detachain_runtime_config::CHAIN_ID as detachainChainId;
 
 impl SubstrateCli for Cli {
 	fn impl_name() -> String {
-		"MathChain Node".into()
+		"detaChain Node".into()
 	}
 
 	fn impl_version() -> String {
@@ -66,15 +66,15 @@ impl SubstrateCli for Cli {
 	}
 
 	fn native_runtime_version(_: &Box<dyn ChainSpec>) -> &'static RuntimeVersion {
-		&mathchain_runtime::VERSION
+		&detachain_runtime::VERSION
 	}
 }
 
 fn set_default_ss58_version(spec: &Box<dyn sc_cli::ChainSpec>) {
 	let ss58_version = if spec.is_galois() {
 		Ss58AddressFormat::Custom(GaoloisChainId)
-	} else if spec.is_math() {
-		Ss58AddressFormat::Custom(MathchainChainId)
+	} else if spec.is_deta() {
+		Ss58AddressFormat::Custom(detachainChainId)
 	} else {
 		Ss58AddressFormat::Custom(GaoloisChainId)
 	};

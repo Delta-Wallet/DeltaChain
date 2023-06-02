@@ -1,12 +1,12 @@
 [package]
-name = "mathchain-consensus-primitives"
+name = "detachain-consensus-primitives"
 version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "Primitives for Mathchain consensus"
+description = "Primitives for detachain consensus"
 edition = "2018"
 license = "Apache-2.0"
-homepage = "https://mathwallet.net/mathchain"
-repository = "https://github.com/mathwallet/MathChain/"
+homepage = "https://detawallet.net/detachain"
+repository = "https://github.com/detawallet/detaChain/"
 
 [dependencies]
 sp-std = { default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "master" }

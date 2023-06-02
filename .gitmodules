@@ -1,3 +1,3 @@
 [submodule "vendor/frontier"]
 	path = vendor/frontier
-	url=https://github.com/mathwallet/frontier.git
+	url=https://github.com/detawallet/frontier.git

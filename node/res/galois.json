@@ -17,11 +17,11 @@
       0
     ]
   ],
-  "protocolId": "math",
+  "protocolId": "deta",
   "properties": {
     "ss58Format": 40,
     "tokenDecimals": 18,
-    "tokenSymbol": "MATH"
+    "tokenSymbol": "deta"
   },
   "consensusEngine": null,
   "lightSyncState": null,

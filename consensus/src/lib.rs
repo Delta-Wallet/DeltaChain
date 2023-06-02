@@ -1,4 +1,4 @@
-// This file is part of Mathchain.
+// This file is part of detachain.
 
 // Copyright (C) 2017-2020 Parity Technologies (UK) Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later WITH Classpath-exception-2.0
@@ -23,7 +23,7 @@ pub use crate::aux_schema::{load_block_hash, load_transaction_metadata};
 use std::sync::Arc;
 use std::collections::HashMap;
 use std::marker::PhantomData;
-use mathchain_consensus_primitives::{MATHCHAIN_ENGINE_ID, ConsensusLog};
+use detachain_consensus_primitives::{detaCHAIN_ENGINE_ID, ConsensusLog};
 use sc_client_api::{BlockOf, backend::AuxStore};
 use sp_blockchain::{HeaderBackend, ProvideCache, well_known_cache_keys::Id as CacheKeyId};
 use sp_block_builder::BlockBuilder as BlockBuilderApi;
@@ -57,16 +57,16 @@ impl std::convert::From<Error> for ConsensusError {
 	}
 }
 
-pub struct MathchainBlockImport<B: BlockT, I, C> {
+pub struct detachainBlockImport<B: BlockT, I, C> {
 	inner: I,
 	client: Arc<C>,
 	is_galois: bool,
 	_marker: PhantomData<B>,
 }
 
-impl<Block: BlockT, I: Clone + BlockImport<Block>, C> Clone for MathchainBlockImport<Block, I, C> {
+impl<Block: BlockT, I: Clone + BlockImport<Block>, C> Clone for detachainBlockImport<Block, I, C> {
 	fn clone(&self) -> Self {
-		MathchainBlockImport {
+		detachainBlockImport {
 			inner: self.inner.clone(),
 			client: self.client.clone(),
 			is_galois: self.is_galois,
@@ -75,7 +75,7 @@ impl<Block: BlockT, I: Clone + BlockImport<Block>, C> Clone for MathchainBlockIm
 	}
 }
 
-impl<B, I, C> MathchainBlockImport<B, I, C> where
+impl<B, I, C> detachainBlockImport<B, I, C> where
 	B: BlockT,
 	I: BlockImport<B, Transaction = sp_api::TransactionFor<C, B>> + Send + Sync,
 	I::Error: Into<ConsensusError>,
@@ -96,7 +96,7 @@ impl<B, I, C> MathchainBlockImport<B, I, C> where
 	}
 }
 
-impl<B, I, C> BlockImport<B> for MathchainBlockImport<B, I, C> where
+impl<B, I, C> BlockImport<B> for detachainBlockImport<B, I, C> where
 	B: BlockT,
 	I: BlockImport<B, Transaction = sp_api::TransactionFor<C, B>> + Send + Sync,
 	I::Error: Into<ConsensusError>,
@@ -130,7 +130,7 @@ impl<B, I, C> BlockImport<B> for MathchainBlockImport<B, I, C> where
 
 		// support testnet aura block import
 		// if !!!(self.is_galois && block.header.number().clone().saturated_into::<u64>() < 1_252_435) {
-		let log = find_mathchain_log::<B>(&block.header)?;
+		let log = find_detachain_log::<B>(&block.header)?;
 		let hash = block.post_hash();
 
 		match log {
@@ -154,20 +154,20 @@ impl<B, I, C> BlockImport<B> for MathchainBlockImport<B, I, C> where
 	}
 }
 
-fn find_mathchain_log<B: BlockT>(
+fn find_detachain_log<B: BlockT>(
 	header: &B::Header,
 ) -> Result<ConsensusLog, Error> {
-	let mut mathchain_log: Option<_> = None;
+	let mut detachain_log: Option<_> = None;
 	for log in header.digest().logs() {
-		trace!(target: "mathchain-consensus", "Checking log {:?}, looking for ethereum block.", log);
-		let log = log.try_to::<ConsensusLog>(OpaqueDigestItemId::Consensus(&MATHCHAIN_ENGINE_ID));
-		match (log, mathchain_log.is_some()) {
+		trace!(target: "detachain-consensus", "Checking log {:?}, looking for ethereum block.", log);
+		let log = log.try_to::<ConsensusLog>(OpaqueDigestItemId::Consensus(&detaCHAIN_ENGINE_ID));
+		match (log, detachain_log.is_some()) {
 			(Some(_), true) =>
 				return Err(Error::MultiplePostRuntimeLogs),
-			(Some(log), false) => mathchain_log = Some(log),
-			_ => trace!(target: "mathchain-consensus", "Ignoring digest not meant for us"),
+			(Some(log), false) => detachain_log = Some(log),
+			_ => trace!(target: "detachain-consensus", "Ignoring digest not meant for us"),
 		}
 	}
 
-	Ok(mathchain_log.ok_or(Error::NoPostRuntimeLog)?)
+	Ok(detachain_log.ok_or(Error::NoPostRuntimeLog)?)
 }

@@ -1542,7 +1542,7 @@ dependencies = [
 [[package]]
 name = "fc-consensus"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "derive_more",
  "fc-db",
@@ -1566,7 +1566,7 @@ dependencies = [
 [[package]]
 name = "fc-db"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "kvdb",
  "kvdb-rocksdb",
@@ -1580,7 +1580,7 @@ dependencies = [
 [[package]]
 name = "fc-mapping-sync"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "fc-consensus",
  "fc-db",
@@ -1598,7 +1598,7 @@ dependencies = [
 [[package]]
 name = "fc-rpc"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -1638,7 +1638,7 @@ dependencies = [
 [[package]]
 name = "fc-rpc-core"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum-types",
  "jsonrpc-core 15.1.0",
@@ -1742,7 +1742,7 @@ dependencies = [
 [[package]]
 name = "fp-consensus"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum",
  "parity-scale-codec",
@@ -1756,7 +1756,7 @@ dependencies = [
 [[package]]
 name = "fp-evm"
 version = "0.8.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "evm",
  "impl-trait-for-tuples 0.1.3",
@@ -1769,7 +1769,7 @@ dependencies = [
 [[package]]
 name = "fp-rpc"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -1785,7 +1785,7 @@ dependencies = [
 [[package]]
 name = "fp-storage"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -3663,7 +3663,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ffc5c5338469d4d3ea17d269fa8ea3512ad247247c30bd2df69e68309ed0a08"
 
 [[package]]
-name = "mathchain"
+name = "detachain"
 version = "0.7.0"
 dependencies = [
  "array-bytes",
@@ -3680,10 +3680,10 @@ dependencies = [
  "jsonrpc-core 15.1.0",
  "jsonrpc-pubsub 15.1.0",
  "log",
- "mathchain-consensus",
- "mathchain-runtime",
- "mathchain-runtime-galois",
- "mathchain-runtime-mathchain",
+ "detachain-consensus",
+ "detachain-runtime",
+ "detachain-runtime-galois",
+ "detachain-runtime-detachain",
  "pallet-ethereum",
  "pallet-evm",
  "pallet-transaction-payment-rpc",
@@ -3719,14 +3719,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "mathchain-consensus"
+name = "detachain-consensus"
 version = "0.1.0"
 dependencies = [
  "derive_more",
  "ethereum",
  "futures 0.3.13",
  "log",
- "mathchain-consensus-primitives",
+ "detachain-consensus-primitives",
  "parity-scale-codec",
  "sc-client-api",
  "sp-api",
@@ -3741,7 +3741,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mathchain-consensus-primitives"
+name = "detachain-consensus-primitives"
 version = "0.1.0"
 dependencies = [
  "parity-scale-codec",
@@ -3751,7 +3751,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mathchain-runtime"
+name = "detachain-runtime"
 version = "0.1.0"
 dependencies = [
  "fp-rpc",
@@ -3797,11 +3797,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "mathchain-runtime-galois"
+name = "detachain-runtime-galois"
 version = "0.1.0"
 
 [[package]]
-name = "mathchain-runtime-mathchain"
+name = "detachain-runtime-detachain"
 version = "0.1.0"
 
 [[package]]
@@ -4243,7 +4243,7 @@ dependencies = [
 [[package]]
 name = "pallet-account-service"
 version = "2.0.0"
-source = "git+https://github.com/mathwallet/MathChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
+source = "git+https://github.com/detawallet/detaChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4289,7 +4289,7 @@ dependencies = [
 [[package]]
 name = "pallet-balances"
 version = "2.0.0"
-source = "git+https://github.com/mathwallet/MathChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
+source = "git+https://github.com/detawallet/detaChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
 dependencies = [
  "chrono",
  "frame-benchmarking",
@@ -4307,7 +4307,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum"
 version = "0.1.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -4335,7 +4335,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm"
 version = "3.0.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "evm",
  "evm-gasometer",
@@ -4360,7 +4360,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-simple"
 version = "3.0.0"
-source = "git+https://github.com/mathwallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
+source = "git+https://github.com/detawallet/frontier?branch=master#6963f14533ea13b0bf6e6fcfc8a9eee33cb4a014"
 dependencies = [
  "evm",
  "fp-evm",
@@ -4519,7 +4519,7 @@ dependencies = [
 [[package]]
 name = "pallet-validator-set"
 version = "0.2.0"
-source = "git+https://github.com/mathwallet/MathChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
+source = "git+https://github.com/detawallet/detaChain-common?branch=master#ddc216cf3a613c9d198ce20ecd24ae3613a2e22b"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4595,7 +4595,7 @@ dependencies = [
 [[package]]
 name = "parity-secretstore-substrate-runtime-module"
 version = "1.0.0"
-source = "git+https://github.com/mathwallet/secret-store.git?branch=master#829fe4e43e6680a49af9800932a57ab195974e6c"
+source = "git+https://github.com/detawallet/secret-store.git?branch=master#829fe4e43e6680a49af9800932a57ab195974e6c"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4611,7 +4611,7 @@ dependencies = [
 [[package]]
 name = "parity-secretstore-substrate-runtime-primitives"
 version = "1.0.0"
-source = "git+https://github.com/mathwallet/secret-store.git?branch=master#829fe4e43e6680a49af9800932a57ab195974e6c"
+source = "git+https://github.com/detawallet/secret-store.git?branch=master#829fe4e43e6680a49af9800932a57ab195974e6c"
 dependencies = [
  "parity-scale-codec",
  "sp-api",

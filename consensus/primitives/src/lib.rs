@@ -1,4 +1,4 @@
-// This file is part of Mathchain.
+// This file is part of detachain.
 
 // Copyright (C) 2017-2020 Parity Technologies (UK) Ltd.
 // SPDX-License-Identifier: Apache-2.0
@@ -22,7 +22,7 @@ use sp_std::vec::Vec;
 use sp_core::H256;
 use sp_runtime::ConsensusEngineId;
 
-pub const MATHCHAIN_ENGINE_ID: ConsensusEngineId = [b'f', b'r', b'o', b'n'];
+pub const detaCHAIN_ENGINE_ID: ConsensusEngineId = [b'f', b'r', b'o', b'n'];
 
 #[derive(Decode, Encode, Clone, PartialEq, Eq)]
 pub enum ConsensusLog {

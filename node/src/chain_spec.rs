@@ -1,10 +1,10 @@
 use sp_core::{Pair, Public, sr25519, U256, H160, crypto::UncheckedInto,};
-use mathchain_runtime::{
+use detachain_runtime::{
 	AccountId, AuraConfig, BalancesConfig, EVMConfig, EthereumConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature, ValidatorSetConfig, opaque::SessionKeys, SessionConfig,
 	SecretStoreConfig
 };
-use mathchain_runtime::constants::currency::MATHS as MATH;
+use detachain_runtime::constants::currency::detaS as deta;
 
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
@@ -14,7 +14,7 @@ use std::collections::BTreeMap;
 use std::str::FromStr;
 use sc_telemetry::TelemetryEndpoints;
 
-const DEFAULT_PROTOCOL_ID: &str = "math";
+const DEFAULT_PROTOCOL_ID: &str = "deta";
 
 
 // The URL for the telemetry server.
@@ -27,32 +27,32 @@ pub fn galois_config() -> Result<ChainSpec, String> {
 	ChainSpec::from_json_bytes(&include_bytes!("../res/galois.json")[..])
 }
 
-// fn galois_build_spec_genesis() -> mathchain_runtime::GenesisConfig {
+// fn galois_build_spec_genesis() -> detachain_runtime::GenesisConfig {
 // 	const ROOT: &'static str = "0x24a80b84d2d5130beafcb2b1a3b1a0e0e1cee122ef0e508d6b1eb862b802fe1d";
 
 // 	let root = AccountId::from(array_bytes::hex_str_array_unchecked!(ROOT, 32));
-// 	let endowed_accounts = vec![(root.clone(), 10000 * MATH)];
+// 	let endowed_accounts = vec![(root.clone(), 10000 * deta)];
 
-// 	mathchain_runtime::GenesisConfig {
-// 		frame_system: mathchain_runtime::SystemConfig {
-// 			code: mathchain_runtime::WASM_BINARY
+// 	detachain_runtime::GenesisConfig {
+// 		frame_system: detachain_runtime::SystemConfig {
+// 			code: detachain_runtime::WASM_BINARY
 // 			.expect("WASM binary was not build, please build it!")
 // 			.to_vec(),
 // 			changes_trie_config: Default::default(),
 // 		},
-// 		pallet_balances: mathchain_runtime::BalancesConfig {
+// 		pallet_balances: detachain_runtime::BalancesConfig {
 // 			balances: endowed_accounts,
 // 		},
-// 		pallet_sudo: mathchain_runtime::SudoConfig { key: root },
+// 		pallet_sudo: detachain_runtime::SudoConfig { key: root },
 // 	}
 // }
 
-pub fn math_testnet_properties() -> Properties {
+pub fn deta_testnet_properties() -> Properties {
 	let mut properties = Properties::new();
 
 	properties.insert("ss58Format".into(), 40.into());
 	properties.insert("tokenDecimals".into(), 18.into());
-	properties.insert("tokenSymbol".into(), "MATH".into());
+	properties.insert("tokenSymbol".into(), "deta".into());
 
 	properties
 }
@@ -233,7 +233,7 @@ pub fn galois_for_genesis() -> Result<ChainSpec, String> {
 		// Protocol ID
 		Some(DEFAULT_PROTOCOL_ID),
 		// Properties
-		Some(math_testnet_properties()),
+		Some(deta_testnet_properties()),
 		// Extensions
 		None
 	))
@@ -246,7 +246,7 @@ pub fn development_config() -> Result<ChainSpec, String> {
 		// Name
 		"Development",
 		// ID
-		"mathchain-dev",
+		"detachain-dev",
 		ChainType::Development,
 		move || testnet_genesis(
 			wasm_binary,
@@ -293,7 +293,7 @@ pub fn development_config() -> Result<ChainSpec, String> {
 		// Protocol ID
 		Some(DEFAULT_PROTOCOL_ID),
 		// Properties
-		Some(math_testnet_properties()),
+		Some(deta_testnet_properties()),
 		// Extensions
 		None,
 	))
@@ -306,7 +306,7 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 		// Name
 		"Local Testnet",
 		// ID
-		"mathchain_local_testnet",
+		"detachain_local_testnet",
 		ChainType::Local,
 		move || testnet_genesis(
 			wasm_binary,
@@ -342,7 +342,7 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 		// Protocol ID
 		Some(DEFAULT_PROTOCOL_ID),
 		// Properties
-		Some(math_testnet_properties()),
+		Some(deta_testnet_properties()),
 		// Extensions
 		None,
 	))
@@ -376,8 +376,8 @@ fn testnet_genesis(
 			changes_trie_config: Default::default(),
 		},
 		pallet_balances: BalancesConfig {
-			// Configure endowed accounts with initial balance of 10000 Math.
-			balances: endowed_accounts.iter().cloned().map(|k|(k, 10000 * MATH)).collect(),
+			// Configure endowed accounts with initial balance of 10000 deta.
+			balances: endowed_accounts.iter().cloned().map(|k|(k, 10000 * deta)).collect(),
 		},
 		pallet_aura: AuraConfig {
 			authorities: vec![],

@@ -7,7 +7,7 @@ use sc_client_api::{ExecutorProvider, RemoteBackend, BlockchainEvents};
 use sc_consensus_manual_seal::{self as manual_seal};
 use fc_consensus::FrontierBlockImport;
 use fc_mapping_sync::MappingSyncWorker;
-use mathchain_runtime::{self, opaque::Block, RuntimeApi, SLOT_DURATION};
+use detachain_runtime::{self, opaque::Block, RuntimeApi, SLOT_DURATION};
 use sc_service::{error::Error as ServiceError, Configuration, TaskManager, BasePath};
 use sp_inherents::{InherentDataProviders, ProvideInherentData, InherentIdentifier, InherentData};
 use sc_executor::native_executor_instance;
@@ -24,8 +24,8 @@ use crate::cli::Sealing;
 // Our native executor instance.
 native_executor_instance!(
 	pub Executor,
-	mathchain_runtime::api::dispatch,
-	mathchain_runtime::native_version,
+	detachain_runtime::api::dispatch,
+	detachain_runtime::native_version,
 );
 
 type FullClient = sc_service::TFullClient<Block, RuntimeApi, Executor>;
@@ -100,7 +100,7 @@ pub trait IdentifyVariant {
 	fn is_galois(&self) -> bool;
 
 	/// Returns if this is a configuration for the `Darwinia` network.
-	fn is_math(&self) -> bool;
+	fn is_deta(&self) -> bool;
 }
 
 impl IdentifyVariant for Box<dyn sc_service::ChainSpec> {
@@ -108,8 +108,8 @@ impl IdentifyVariant for Box<dyn sc_service::ChainSpec> {
 		self.id().starts_with("Galois") || self.id().starts_with("dev")
 	}
 
-	fn is_math(&self) -> bool {
-		self.id().starts_with("MathChain")
+	fn is_deta(&self) -> bool {
+		self.id().starts_with("detaChain")
 	}
 }
 
@@ -168,14 +168,14 @@ pub fn new_partial(config: &Configuration, sealing: Option<Sealing>) -> Result<
 			.map_err(Into::into)
 			.map_err(sp_consensus::error::Error::InherentData)?;
 
-		let mathchain_block_import = FrontierBlockImport::new(
+		let detachain_block_import = FrontierBlockImport::new(
 			client.clone(),
 			client.clone(),
 			frontier_backend.clone(),
 		);
 
 		let import_queue = sc_consensus_manual_seal::import_queue(
-			Box::new(mathchain_block_import.clone()),
+			Box::new(detachain_block_import.clone()),
 			&task_manager.spawn_essential_handle(),
 			config.prometheus_registry(),
 		);
@@ -183,7 +183,7 @@ pub fn new_partial(config: &Configuration, sealing: Option<Sealing>) -> Result<
 		return Ok(sc_service::PartialComponents {
 			client, backend, task_manager, import_queue, keystore_container,
 			select_chain, transaction_pool, inherent_data_providers,
-			other: (ConsensusResult::ManualSeal(mathchain_block_import, sealing), telemetry, pending_transactions, filter_pool, frontier_backend)
+			other: (ConsensusResult::ManualSeal(detachain_block_import, sealing), telemetry, pending_transactions, filter_pool, frontier_backend)
 		})
 	}
 
@@ -194,14 +194,14 @@ pub fn new_partial(config: &Configuration, sealing: Option<Sealing>) -> Result<
 		telemetry.as_ref().map(|x| x.handle()),
 	)?;
 
-	let mathchain_block_import = FrontierBlockImport::new(
+	let detachain_block_import = FrontierBlockImport::new(
 		grandpa_block_import.clone(),
 		client.clone(),
 		frontier_backend.clone(),
 	);
 
 	let aura_block_import = sc_consensus_aura::AuraBlockImport::<_, _, _, AuraPair>::new(
-		mathchain_block_import, client.clone(),
+		detachain_block_import, client.clone(),
 	);
 
 	let import_queue = sc_consensus_aura::import_queue::<AuraPair, _, _, _, _, _>(

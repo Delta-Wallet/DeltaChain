@@ -7,15 +7,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'mathchain'",
+            "name": "Debug executable 'detachain'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=mathchain",
-                    "--package=mathchain"
+                    "--bin=detachain",
+                    "--package=detachain"
                 ],
                 "filter": {
-                    "name": "mathchain",
+                    "name": "detachain",
                     "kind": "bin"
                 }
             },
@@ -25,16 +25,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'mathchain'",
+            "name": "Debug unit tests in executable 'detachain'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=mathchain",
-                    "--package=mathchain"
+                    "--bin=detachain",
+                    "--package=detachain"
                 ],
                 "filter": {
-                    "name": "mathchain",
+                    "name": "detachain",
                     "kind": "bin"
                 }
             },
@@ -44,16 +44,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'mathchain-runtime-galois'",
+            "name": "Debug unit tests in library 'detachain-runtime-galois'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=mathchain-runtime-galois"
+                    "--package=detachain-runtime-galois"
                 ],
                 "filter": {
-                    "name": "mathchain-runtime-galois",
+                    "name": "detachain-runtime-galois",
                     "kind": "lib"
                 }
             },
@@ -63,16 +63,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'mathchain-consensus'",
+            "name": "Debug unit tests in library 'detachain-consensus'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=mathchain-consensus"
+                    "--package=detachain-consensus"
                 ],
                 "filter": {
-                    "name": "mathchain-consensus",
+                    "name": "detachain-consensus",
                     "kind": "lib"
                 }
             },
@@ -82,16 +82,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'mathchain-consensus-primitives'",
+            "name": "Debug unit tests in library 'detachain-consensus-primitives'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=mathchain-consensus-primitives"
+                    "--package=detachain-consensus-primitives"
                 ],
                 "filter": {
-                    "name": "mathchain-consensus-primitives",
+                    "name": "detachain-consensus-primitives",
                     "kind": "lib"
                 }
             },
@@ -101,16 +101,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'mathchain-runtime'",
+            "name": "Debug unit tests in library 'detachain-runtime'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=mathchain-runtime"
+                    "--package=detachain-runtime"
                 ],
                 "filter": {
-                    "name": "mathchain-runtime",
+                    "name": "detachain-runtime",
                     "kind": "lib"
                 }
             },
@@ -120,16 +120,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'mathchain-runtime-mathchain'",
+            "name": "Debug unit tests in library 'detachain-runtime-detachain'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=mathchain-runtime-mathchain"
+                    "--package=detachain-runtime-detachain"
                 ],
                 "filter": {
-                    "name": "mathchain-runtime-mathchain",
+                    "name": "detachain-runtime-detachain",
                     "kind": "lib"
                 }
             },

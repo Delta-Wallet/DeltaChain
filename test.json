@@ -1,14 +1,14 @@
 {
   "name": "Local Testnet",
-  "id": "mathchain_local_testnet",
+  "id": "detachain_local_testnet",
   "chainType": "Local",
   "bootNodes": [],
   "telemetryEndpoints": null,
-  "protocolId": "math",
+  "protocolId": "deta",
   "properties": {
     "ss58Format": 40,
     "tokenDecimals": 18,
-    "tokenSymbol": "MATH"
+    "tokenSymbol": "deta"
   },
   "consensusEngine": null,
   "lightSyncState": null,
